@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical & Travel Expense Request</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="page">
+
+        <!--  HEADER  -->
+
+        <header class="header">
+
+            <div class="logo-section">
+                <img src="../assets/images/wcb-logo.jpeg" alt="WCB Logo" class="logo">
+            </div>
+
+            <div class="address-section">
+                <p>333 Broadway</p>
+                <p>Winnipeg, MB R3C 4W3</p>
+                <p>Phone: (204) 954-4321</p>
+                <p>Toll Free: 1-855-954-4321</p>
+                <p>wcb.mb.ca</p>
+            </div>
+
+            <div class="title-section">
+
+                <h3 class="document-title">
+                    Medical&nbsp;&amp;&nbsp;Travel&nbsp;Expense<br>
+                    Request
+                </h3>
+                <div class="claim-box">
+                    <p>Claim No. <span id="claimNumber"></span></p>
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- = INTRO  -->
+
+        <section class="intro">
+
+            <p>
+                <span class="worker-name" id="workerName"></span>
+                requested reimbursement for the following medical and/or travel expenses.
+            </p>
+
+        </section>
+
+
+        <!--  PRESCRIPTION -->
+
+        <section class="content-section">
+
+            <h2 class="section-title">
+                Prescription Drugs
+            </h2>
+
+            <!-- Input Row -->
+
+            <div class="input-row">
+
+                <input type="text" id="drugName" placeholder="Drug Name">
+
+                <input type="date" id="prescriptionDate">
+
+                <input type="date" id="purchaseDate">
+
+                <input type="text" id="provider" placeholder="Healthcare Provider">
+
+                <input type="text" id="amount" placeholder="Paid Amount">
+
+                <button id="addPrescription">
+                    Add
+                </button>
+
+            </div>
+
+            <!-- Table -->
+
+            <table class="data-table prescription-table">
+
+                <thead>
+                    <tr>
+                        <th>Drug Name</th>
+                        <th>Prescription Date</th>
+                        <th>Date Purchased</th>
+                        <th>Healthcare Provider Name</th>
+                        <th>Paid Amount</th>
+                    </tr>
+                </thead>
+
+                <tbody id="prescriptionBody">
+                </tbody>
+
+            </table>
+
+        </section>
+        <!--  OTC  -->
+
+        <section class="content-section">
+
+            <h2 class="section-title">
+                Over-the-Counter Drugs
+            </h2>
+
+            <!-- Input Row -->
+
+            <div class="input-row">
+
+                <input type="text" id="otcDrugName" placeholder="Drug Name">
+
+                <input type="date" id="otcPurchaseDate">
+
+                <input type="text" id="otcAmount" placeholder="Paid Amount">
+
+                <input type="text" id="otcSeller" placeholder="Seller's Name">
+
+                <input type="text" id="otcReason" placeholder="Reason for Purchasing">
+
+                <button id="addOTC">
+                    Add
+                </button>
+
+            </div>
+
+            <!-- Table -->
+
+            <table class="data-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Drug Name</th>
+
+                        <th>Date Purchased</th>
+
+                        <th>Paid Amount</th>
+
+                        <th>Seller's Name</th>
+
+                        <th>Reason for Purchasing</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="otcBody">
+
+                </tbody>
+
+            </table>
+
+        </section>
+        <!--  MEDICAL SUPPLIES  -->
+
+        <section class="content-section">
+
+            <h2 class="section-title">
+                Bandages, Braces or Other Medical Supplies
+            </h2>
+
+            <!-- Input Row -->
+
+            <div class="input-row">
+
+                <input type="text" id="supplyItem" placeholder="Item Purchased">
+
+                <input type="date" id="supplyPurchaseDate">
+
+                <select id="prescribed">
+
+                    <option value="">Prescribed?</option>
+                    <option>Yes</option>
+                    <option>No</option>
+
+                </select>
+
+                <input type="text" id="supplyProvider" placeholder="Healthcare Provider">
+
+                <input type="text" id="supplyAmount" placeholder="Paid Amount">
+
+                <input type="text" id="supplySeller" placeholder="Seller's Name">
+
+                <button id="addSupply">
+                    Add
+                </button>
+
+            </div>
+
+            <!-- Table -->
+
+            <table class="data-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Item Purchased</th>
+
+                        <th>Date Purchased</th>
+
+                        <th>Was this Prescribed?</th>
+
+                        <th>Healthcare Provider Name</th>
+
+                        <th>Paid Amount</th>
+
+                        <th>Seller's Name</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="suppliesBody">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!--  PARKING  -->
+
+        <section class="content-section">
+
+            <h2 class="section-title">
+                Parking for Medical Appointments
+            </h2>
+
+            <!-- Input Row -->
+
+            <div class="input-row">
+
+                <input type="text" id="parkingAddress" placeholder="Healthcare Provider / Medical Facility">
+
+                <input type="date" id="parkingDate">
+
+                <input type="text" id="parkingAmount" placeholder="Paid Amount">
+
+                <select id="meterUsed">
+                    <option value="">Meter Used?</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+
+                <input type="text" id="meterNumber" placeholder="Meter Number">
+
+                <button id="addParking">
+                    Add
+                </button>
+
+            </div>
+
+            <!-- Table -->
+
+            <table class="data-table parking-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Address of Healthcare Provider / Medical Facility</th>
+
+                        <th>Appointment Date</th>
+
+                        <th>Paid Amount</th>
+
+                        <th>Meter Used?</th>
+
+                        <th>Meter Number</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="parkingBody">
+                </tbody>
+
+            </table>
+
+        </section>
+        <!--  MILEAGE  -->
+
+        <section class="content-section">
+
+            <h2 class="section-title">
+                Mileage to Medical Appointments
+            </h2>
+
+            <p class="note">
+                The WCB will generally reimburse only those transportation costs which are in excess of costs that would
+                be incurred by the worker while travelling to and from work.
+            </p>
+
+            <!-- Input Row -->
+
+            <div class="input-row mileage-input-row">
+
+                <input type="date" id="mileageDate">
+
+                <input type="text" id="healthcareAddress" placeholder="Healthcare Provider / Medical Facility">
+
+                <input type="text" id="workplaceAddress" placeholder="Workplace Address">
+
+                <input type="text" id="roundTripKm" placeholder="Round Trip (km)">
+
+                <button id="addMileage">
+                    Add
+                </button>
+
+            </div>
+
+            <!-- Table -->
+
+            <table class="data-table mileage-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Appointment <br>Date</th>
+
+                        <th>Address of Healthcare Provider / Medical Facility</th>
+
+                        <th>Address of Workplace</th>
+
+                        <th>Number of km<br>(Round Trip)</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="mileageBody">
+                </tbody>
+
+            </table>
+
+        </section>
+        <!-- FOOTER  -->
+
+        <footer class="footer">
+
+            <span id="workerId"></span>
+
+            <span id="submittedDate"></span>
+
+            <span id="pageNumber"></span>
+
+        </footer>
+
+    </div>
+    <!--  PAGE 2  -->
+
+<div class="page page-break">
+
+    <main>
+
+        <section class="section">
+
+            <h3>Bus or Taxi Fare for Medical Appointments<sup>*</sup></h3>
+
+            <p class="note">
+                *Note: Pre-approval is required from your WCB representative
+                to claim taxi fare(s).
+            </p>
+
+            <div class="busTaxi-input-row">
+
+                <input type="date" id="busTaxiDate">
+
+                <input type="text"
+                       id="startPoint"
+                       placeholder="Starting Point">
+
+                <input type="text"
+                       id="providerAddress"
+                       placeholder="Healthcare Provider">
+
+                <select id="transportType">
+                    <option value="">Bus / Taxi</option>
+                    <option>Bus</option>
+                    <option>Taxi</option>
+                </select>
+
+                <input type="text"
+                       id="farePaid"
+                       placeholder="Fare">
+
+                <button id="addBusTaxi">
+                    Add
+                </button>
+
+            </div>
+
+            <table id="busTaxiTable"></table>
+
+        </section>
+
+        <div class="privacy">
+
+            <label>
+                <input type="checkbox" checked>
+
+                I understand that the
+                
+                <a href="#" target="_blank">Privacy Notice</a>
+                applies to the personal information collected in this document.
+
+            </label>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+
+        <span id="workerIdPage2"></span>
+
+        <span id="submittedDatePage2"></span>
+
+        <span>Page 2 of 2</span>
+
+    </footer>
+
+</div>
+        <!-- FOOTER  -->
+
+
+
+    <script src="../js/medical.js"></script>
+
+</body>
+
+</html>
